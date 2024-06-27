@@ -20,8 +20,8 @@ const UserList = () => {
   },[])
 
   return (
-    <section>
-      {users.map((user, index) => (
+    <section className={styles.userList}>
+      {users.map((user) => (
         <UserCard key={user.id} name={user.name} address={`${user.address.street} ${user.address.suite}`} email={user.email} phone={user.phone} />
       ))}
     </section>

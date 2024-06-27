@@ -1,0 +1,18 @@
+.userList {
+  display: grid;
+  grid-template-columns: repeat(3, 300px);
+  gap: 40px;
+  justify-content: center;
+}
+
+@media (max-width: 1050px) {
+  .userList {
+    grid-template-columns: repeat(2, 300px);
+  }
+}
+
+@media (max-width: 700px) {
+  .userList {
+    grid-template-columns: repeat(1, 300px);
+  }
+}
