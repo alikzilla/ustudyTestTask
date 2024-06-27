@@ -1,0 +1,32 @@
+.button {
+  width: 100px;
+  height: 40px;
+  border: 2px solid;
+  border-radius: 10px;
+  background-color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: all 0.3s;
+}
+
+.normal {
+  color: blue;
+  border-color: blue;
+}
+
+.normal:hover {
+  background-color: blue;
+  color: white;
+  transform: scale(1.1);
+}
+
+.delete {
+  color: red;
+  border-color: red;
+}
+
+.delete:hover {
+  background-color: red;
+  color: white;
+  transform: scale(1.1);
+}
