@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Header from './components/header/Header';
 import UserList from './components/userList/UserList';
 import Footer from './components/footer/Footer';
 import Popup from './components/popup/Popup';
 
-function App() {
+const App = () => {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
 
   const addUser = () => {

@@ -1,6 +1,13 @@
+import { FC } from "react";
 import styles from "./button.module.css";
 
-const Button = ({ text, del, onClick }) => {
+interface IButtonProps {
+  text: string,
+  del: boolean,
+  onClick: React.MouseEventHandler
+}
+
+const Button: FC<IButtonProps> = ({ text, del, onClick }) => {
   return (
     <section>
       <button

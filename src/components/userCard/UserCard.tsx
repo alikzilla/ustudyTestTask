@@ -18,7 +18,7 @@ const UserCard = ({ id, name, address, email, phone, onClick }) => {
         <p>{phone}</p>
       </div>
       <div className={styles.controls}>
-        <Button text={"Edit"} />
+        <Button text={"Edit"} del={false} onClick={null} />
         <Button text={"Delete"} del={true} onClick={onClick} />
       </div>
     </section>

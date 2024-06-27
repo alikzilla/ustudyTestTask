@@ -9,7 +9,11 @@ import id8 from "./assets/id_8.jpg";
 import id9 from "./assets/id_9.jpg";
 import id10 from "./assets/id_10.jpg";
 
-export const userPhotos = [
+interface IUserPhotos {
+  image: string
+}
+
+export const userPhotos: IUserPhotos[] = [
   {
     image: id1,
   },

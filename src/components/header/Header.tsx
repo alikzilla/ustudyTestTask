@@ -8,7 +8,7 @@ const Header = ({ onClick }) => {
         <img src="/logo.png" alt="Ustudy" width={100} />
         <h1>UStudy test task</h1>
       </div>
-      <Button text={"Add user"} onClick={onClick} />
+      <Button text={"Add user"} del={false} onClick={onClick} />
     </header>
   );
 };
