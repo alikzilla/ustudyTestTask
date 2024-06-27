@@ -36,7 +36,7 @@ const UserList = () => {
           address={`${user.address.street} ${user.address.suite}`}
           email={user.email}
           phone={user.phone}
-          deleteUser={() => deleteUser(user.id)}
+          onClick={() => deleteUser(user.id)}
         />
       ))}
     </section>
