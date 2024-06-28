@@ -17,7 +17,6 @@ const UserList = () => {
   useEffect(() => {
     getUsers().then((response) => {
       dispatch(initializeUsers(response));
-      console.log(users + " asdm,ma;d,a;sd,as");
     });
   }, [dispatch, getUsers]);
 
