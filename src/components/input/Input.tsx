@@ -7,6 +7,6 @@ const Input = ({ label, type, placeholder, onChange }) => {
       <input type={type} placeholder={placeholder} onChange={onChange} />
     </section>
   );
-}
+};
 
 export default Input;

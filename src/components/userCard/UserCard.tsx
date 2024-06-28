@@ -8,7 +8,9 @@ interface UserPhoto {
 
 const UserCard = ({ id, name, address, email, phone, onClick }) => {
   const userPhoto: UserPhoto = userPhotos[id - 1] || { image: "" };
-  const lastPhoto: UserPhoto = userPhotos[userPhotos.length - 1] || { image: "" };
+  const lastPhoto: UserPhoto = userPhotos[userPhotos.length - 1] || {
+    image: "",
+  };
   const photoSrc = userPhoto.image ? userPhoto.image : lastPhoto.image;
 
   return (
