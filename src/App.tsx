@@ -1,13 +1,13 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import Header from "./components/header/Header";
 import UserList from "./components/userList/UserList";
 import Footer from "./components/footer/Footer";
 import Popup from "./components/popup/Popup";
-import { useDispatch } from "react-redux";
+import { addUser, IAddress, IUser } from "./index";
 
 const App = () => {
   const dispatch = useDispatch();
-
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [name, setName] = useState("");
   const [street, setStreet] = useState("");
@@ -19,11 +19,11 @@ const App = () => {
     setName(event.target.value);
   };
 
-  const addressStreetHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const streetHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     setStreet(event.target.value);
   };
 
-  const addressSuiteHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const suiteHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSuite(event.target.value);
   };
 
@@ -35,30 +35,62 @@ const App = () => {
     setPhone(event.target.value);
   };
 
-  const addUser = () => {
+  const addUserHandler = () => {
     setIsPopupVisible(true);
   };
 
   const closePopup = () => {
-    console.log("Name:", name);
-    console.log("Address Street:", street);
-    console.log("Address Suite:", suite);
-    console.log("Email:", email);
-    console.log("Phone:", phone);
-    setIsPopupVisible(false);
+    if (
+      name.trim() !== "" &&
+      street.trim() !== "" &&
+      suite.trim() !== "" &&
+      email.trim() !== "" &&
+      phone.trim() !== ""
+    ) {
+      const newAddress: IAddress = {
+        street: street,
+        suite: suite,
+      };
+
+      const newUser: IUser = {
+        id: Date.now(),
+        image: null,
+        name: name,
+        address: newAddress,
+        email: email,
+        phone: phone,
+      };
+
+      console.log("Name:", name);
+      console.log("Address Street:", street);
+      console.log("Address Suite:", suite);
+      console.log("Email:", email);
+      console.log("Phone:", phone);
+
+      dispatch(addUser(newUser));
+      setIsPopupVisible(false);
+
+      setName("");
+      setStreet("");
+      setSuite("");
+      setEmail("");
+      setPhone("");
+    } else {
+      alert("Fill all inputs");
+    }
   };
 
   return (
     <div>
-      <Header onClick={addUser} />
+      <Header onClick={addUserHandler} />
       <UserList />
       <Footer />
       <Popup
         isVisible={isPopupVisible}
         onClick={closePopup}
         onChangeName={nameHandler}
-        onChangeAddressStreet={addressStreetHandler}
-        onChangeAddressSuite={addressSuiteHandler}
+        onChangeStreet={streetHandler}
+        onChangeSuite={suiteHandler}
         onChangeEmail={emailHandler}
         onChangePhone={phoneHandler}
       />

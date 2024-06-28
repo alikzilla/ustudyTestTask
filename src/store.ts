@@ -8,9 +8,10 @@ import id7 from "./assets/id_7.jpg";
 import id8 from "./assets/id_8.jpg";
 import id9 from "./assets/id_9.jpg";
 import id10 from "./assets/id_10.jpg";
+import defaultUser from "./assets/default.jpg";
 
 interface IUserPhotos {
-  image: string
+  image: string;
 }
 
 export const userPhotos: IUserPhotos[] = [
@@ -43,5 +44,8 @@ export const userPhotos: IUserPhotos[] = [
   },
   {
     image: id10,
+  },
+  {
+    image: defaultUser,
   },
 ];

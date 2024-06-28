@@ -1,16 +1,19 @@
-import React from "react";
 import styles from "./userCard.module.css";
 import Button from "../button/Button";
 import { userPhotos } from "../../store";
 
+interface UserPhoto {
+  image: string;
+}
+
 const UserCard = ({ id, name, address, email, phone, onClick }) => {
-  const userPhoto = userPhotos[id - 1];
+  const userPhoto: UserPhoto = userPhotos[id - 1] || { image: "" };
+  const lastPhoto: UserPhoto = userPhotos[userPhotos.length - 1] || { image: "" };
+  const photoSrc = userPhoto.image ? userPhoto.image : lastPhoto.image;
 
   return (
     <section className={styles.card}>
-      {userPhoto && (
-        <img className={styles.userImage} src={userPhoto.image} alt={name} />
-      )}
+      <img className={styles.userImage} src={photoSrc} alt={name} />
       <div className={styles.userInfo}>
         <h1>{name}</h1>
         <p>{address}</p>

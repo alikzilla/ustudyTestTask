@@ -6,12 +6,11 @@ const Popup = ({
   isVisible,
   onClick,
   onChangeName,
-  onChangeAddressStreet,
-  onChangeAddressSuite,
+  onChangeStreet,
+  onChangeSuite,
   onChangeEmail,
   onChangePhone,
 }) => {
-  
   if (!isVisible) return null;
 
   return (
@@ -30,13 +29,13 @@ const Popup = ({
             label={"Street"}
             type={"text"}
             placeholder={"Write your street"}
-            onChange={onChangeAddressStreet}
+            onChange={onChangeStreet}
           />
           <Input
             label={"Suite"}
             type={"text"}
             placeholder={"Write your suite"}
-            onChange={onChangeAddressSuite}
+            onChange={onChangeSuite}
           />
         </div>
         <Input

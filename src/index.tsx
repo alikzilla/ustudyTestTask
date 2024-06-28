@@ -1,38 +1,37 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import { createStore } from 'redux'; 
-import { Provider } from 'react-redux';
-
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import { createStore } from "redux";
+import { Provider } from "react-redux";
 
 export type RootState = typeof defaultState;
 
 const ADD_USER: "ADD_USER" = "ADD_USER";
 const REMOVE_USER: "REMOVE_USER" = "REMOVE_USER";
-const INITIALIZE_USERS: "INITIALIZE_USERS" = "INITIALIZE_USERS"; 
+const INITIALIZE_USERS: "INITIALIZE_USERS" = "INITIALIZE_USERS";
 
 export interface IAddress {
-  street: string,
-  suite: string,
+  street: string;
+  suite: string;
 }
 
 export interface IUser {
-  id: number,
-  image: string,
-  name: string,
-  address: IAddress,
-  email: string,
-  phone: string,
+  id: number;
+  image: string | null;
+  name: string;
+  address: IAddress;
+  email: string;
+  phone: string;
 }
 
 export interface DefaultState {
-  users: IUser[]
+  users: IUser[];
 }
 
 const defaultState: DefaultState = {
-  users: []
-}
+  users: [],
+};
 
 export const addUser = (user: IUser) => ({
   type: ADD_USER,
@@ -47,36 +46,42 @@ export const removeUser = (id: number) => ({
 export const initializeUsers = (users: IUser[]) => ({
   type: INITIALIZE_USERS,
   payload: users,
-})
+});
 
-type Actions = ReturnType<typeof addUser> | ReturnType<typeof removeUser> | ReturnType<typeof initializeUsers>;
+type Actions =
+  | ReturnType<typeof addUser>
+  | ReturnType<typeof removeUser>
+  | ReturnType<typeof initializeUsers>;
 
-const reducer = (state: DefaultState = defaultState, action: Actions): DefaultState => {
+const reducer = (
+  state: DefaultState = defaultState,
+  action: Actions
+): DefaultState => {
   switch (action.type) {
-    case ADD_USER: 
-      return {
-        ...state,
-        users: [...state.users, action.payload],
-      };
+    case ADD_USER:
+      state.users = [action.payload, ...state.users];
+
+      return state;
     case REMOVE_USER:
-      return {
-        ...state,
-        users: state.users.filter(user => user.id !== action.payload),
+      state = {
+        users: state.users.filter((user) => user.id !== action.payload),
       };
+
+      return state;
     case INITIALIZE_USERS:
-      return {
-        ...state,
+      state = {
         users: action.payload,
       };
+
+      return state;
     default:
       return state;
   }
 };
 
-
 const store = createStore(reducer);
 
-const root = ReactDOM.createRoot(document.getElementById('root')!);
+const root = ReactDOM.createRoot(document.getElementById("root")!);
 root.render(
   <React.StrictMode>
     <Provider store={store}>
