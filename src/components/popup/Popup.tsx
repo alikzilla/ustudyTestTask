@@ -27,15 +27,15 @@ const Popup = ({
         />
         <div className={styles.addressInputWrapper}>
           <Input
-            label={"Address street"}
+            label={"Street"}
             type={"text"}
-            placeholder={"Write your address street"}
+            placeholder={"Write your street"}
             onChange={onChangeAddressStreet}
           />
           <Input
-            label={"Address suite"}
+            label={"Suite"}
             type={"text"}
-            placeholder={"Write your address suite"}
+            placeholder={"Write your suite"}
             onChange={onChangeAddressSuite}
           />
         </div>
