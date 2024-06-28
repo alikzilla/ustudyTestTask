@@ -1,11 +1,12 @@
 import styles from "./header.module.css";
 import Button from "../button/Button";
+import logo from "../../assets/logo.png";
 
 const Header = ({ onClick }) => {
   return (
     <header className={styles.header}>
       <div className={styles.logo}>
-        <img src="/logo.png" alt="Ustudy" width={100} />
+        <img src={logo} alt="Ustudy" width={100} />
         <h1>UStudy test task</h1>
       </div>
       <Button text={"Add user"} del={false} onClick={onClick} />
