@@ -1,70 +1,141 @@
-# Getting Started with Create React App
+# U-Future Test Task
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+U-Future Test Task is a simple React-based user management app. It allows users to view a list of users, add new users, and delete existing users. The app also features pagination to navigate through the user list.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- View a list of users
+- Add new users
+- Delete users
+- Pagination for user navigation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Technologies Used
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- React
+- Redux
+- TypeScript
+- CSS Modules
+- JSONPlaceholder API
 
-### `npm test`
+## API Used
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This application uses the [JSONPlaceholder](https://jsonplaceholder.typicode.com/users) API to fetch the list of users.
 
-### `npm run build`
+## Setup Instructions
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Prerequisites
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Node.js (v14 or higher)
+- npm (v6 or higher) or yarn (v1.22 or higher)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Installation
 
-### `npm run eject`
+1. **Clone the repository:**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+   ```sh
+   git clone https://github.com/alikzilla/ustudyTestTask.git
+   cd ustudyTestTask
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. **Install dependencies:**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+   Using npm:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+   ```sh
+   npm install
+   ```
 
-## Learn More
+   Using yarn:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+   ```sh
+   yarn install
+   ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+3. **Run the application:**
 
-### Code Splitting
+   Using npm:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+   ```sh
+   npm start
+   ```
 
-### Analyzing the Bundle Size
+   Using yarn:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+   ```sh
+   yarn start
+   ```
 
-### Making a Progressive Web App
+   This will start the development server and open the application in your default browser.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Build
 
-### Advanced Configuration
+To create a production build of the application:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Using npm:
 
-### Deployment
+```sh
+npm run build
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Using yarn:
 
-### `npm run build` fails to minify
+```sh
+yarn build
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The build output will be located in the `build` directory.
+
+## Deployment
+
+You can deploy the application using GitHub Pages. First, install the `gh-pages` package:
+
+Using npm:
+
+```sh
+npm install gh-pages --save-dev
+```
+
+Using yarn:
+
+```sh
+yarn add gh-pages --dev
+```
+
+Then add the following scripts to your `package.json`:
+
+```json
+"scripts": {
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d build"
+}
+```
+
+Deploy the application:
+
+Using npm:
+
+```sh
+npm run deploy
+```
+
+Using yarn:
+
+```sh
+yarn deploy
+```
+
+The application is deployed at [https://alikzilla.github.io/ustudyTestTask/](https://alikzilla.github.io/ustudyTestTask/).
+
+## Demonstration
+
+Here is a brief overview of how the application works:
+
+1. **Viewing Users:** Upon launching the app, you'll see a list of users fetched from the JSONPlaceholder API. Users are displayed with their name, address, email, and phone number.
+
+2. **Adding Users:** Click on the "Add User" button in the header to open a popup form. Fill in the user's details and submit to add a new user to the list.
+
+3. **Deleting Users:** Each user card has a "Delete" button. Click on it to remove the user from the list.
+
+4. **Pagination:** Use the "Previous" and "Next" buttons at the bottom of the user list to navigate between pages.
